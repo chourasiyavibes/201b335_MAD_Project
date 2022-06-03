@@ -31,18 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 player = 1;
             }
 
-            for (int i = 0; i < winningStates.length; i++) {
-                if (gameState[winningStates[i][0]] != -1 && gameState[winningStates[i][0]] == gameState[winningStates[i][1]] && gameState[winningStates[i][1]] == gameState[winningStates[i][2]]) {
-                    iswinner = true;
-                    if (gameState[winningStates[i][0]] == 1) {
-                        Toast.makeText(this, "player 1(with Red) won the game", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(this, "player 2(with Green) won the game", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-        }
-    }
+           
+    
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
