@@ -30,7 +30,32 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Pos: " + tag + "   Sym:" + " Zero", Toast.LENGTH_SHORT).show();
                 player = 1;
             }
-
+            for (int i = 0; i < winningStates.length; i++) {
+                if (gameState[winningStates[i][0]] != -1 && gameState[winningStates[i][0]] == gameState[winningStates[i][1]] && gameState[winningStates[i][1]] == gameState[winningStates[i][2]]) {
+                    iswinner = true;
+                    if (gameState[winningStates[i][0]] == 1) {
+                        Toast.makeText(this, "player 1(with Red) won the game", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(this, "player 2(with Green) won the game", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }
+    }
+    public void restart(View view){
+        GridLayout gridLayout=findViewById(R.id.gridLayout);
+        int tot_images=gridLayout.getChildCount();
+        for(int i=0;i<tot_images;i++){
+            ImageView v = (ImageView) gridLayout.getChildAt(i);
+            v.setImageDrawable(null);
+        }
+        iswinner=false;
+        image_clicked=-1;
+        for(int i=0;i<gameState.length;i++){
+            gameState[i]=-1;
+        }
+        player=1;
+    }
            
     
     
